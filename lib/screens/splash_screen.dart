@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFD700),
+      backgroundColor: const Color(0xFF007AFF),
       body: Center(
         child: AnimatedBuilder(
           animation: _animationController,
@@ -93,7 +93,7 @@ class _SplashScreenState extends State<SplashScreen>
                       child: const Icon(
                         Icons.spa,
                         size: 60,
-                        color: Color(0xFFFFD700),
+                        color: Color(0xFF007AFF),
                       ),
                     ),
                     const SizedBox(height: 40),
