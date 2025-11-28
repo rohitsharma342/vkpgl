@@ -1,63 +1,76 @@
 import 'package:flutter/material.dart';
-import '../utils/theme.dart';
+import '../utils/colors.dart';
+import '../utils/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
+  final bool isEnabled;
   final bool isLoading;
   final Color? backgroundColor;
   final Color? textColor;
   final double? width;
   final double height;
-  final EdgeInsetsGeometry? padding;
-  final double borderRadius;
-  
+  final Widget? icon;
+
   const CustomButton({
     super.key,
     required this.text,
     this.onPressed,
+    this.isEnabled = true,
     this.isLoading = false,
     this.backgroundColor,
     this.textColor,
     this.width,
     this.height = 50,
-    this.padding,
-    this.borderRadius = 12,
+    this.icon,
   });
-  
+
   @override
   Widget build(BuildContext context) {
+    final bool isButtonEnabled = isEnabled && !isLoading && onPressed != null;
+    
     return SizedBox(
       width: width ?? double.infinity,
       height: height,
       child: ElevatedButton(
-        onPressed: isLoading ? null : onPressed,
+        onPressed: isButtonEnabled ? onPressed : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? AppTheme.primaryColor,
+          backgroundColor: isButtonEnabled
+              ? (backgroundColor ?? AppColors.primary)
+              : AppColors.textLight,
           foregroundColor: textColor ?? Colors.white,
-          disabledBackgroundColor: Colors.grey[300],
-          elevation: onPressed != null ? 2 : 0,
+          elevation: isButtonEnabled ? 2 : 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
+            borderRadius: BorderRadius.circular(12),
           ),
-          padding: padding ?? const EdgeInsets.symmetric(horizontal: 24),
+          disabledBackgroundColor: AppColors.textLight,
+          disabledForegroundColor: Colors.white,
         ),
         child: isLoading
             ? const SizedBox(
-                width: 20,
                 height: 20,
+                width: 20,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                 ),
               )
-            : Text(
-                text,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: textColor ?? Colors.white,
-                ),
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (icon != null) ...[
+                    icon!,
+                    const SizedBox(width: 8),
+                  ],
+                  Text(
+                    text,
+                    style: AppTextStyles.button.copyWith(
+                      color: textColor ?? Colors.white,
+                    ),
+                  ),
+                ],
               ),
       ),
     );
