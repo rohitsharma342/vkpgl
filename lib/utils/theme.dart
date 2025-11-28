@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primaryColor = Color(0xFFE53E3E);
+  static const Color primaryColor = Color(0xFF000000);
   static const Color backgroundColor = Color(0xFFF8F9FA);
   static const Color cardColor = Colors.white;
   static const Color textPrimary = Color(0xFF2D3436);
   static const Color textSecondary = Color(0xFF636E72);
-  static const Color accentColor = Color(0xFFE53E3E);
+  static const Color accentColor = Color(0xFF000000);
   static const Color errorColor = Color(0xFFE17055);
   static const Color successColor = Color(0xFF00B894);
 
   static ThemeData lightTheme = ThemeData(
-    primarySwatch: MaterialColor(0xFFE53E3E, {
-      50: const Color(0xFFFEF5F5),
-      100: const Color(0xFFFED7D7),
-      200: const Color(0xFFFEB2B2),
-      300: const Color(0xFFFC8181),
-      400: const Color(0xFFF56565),
+    primarySwatch: MaterialColor(0xFF000000, {
+      50: const Color(0xFFF5F5F5),
+      100: const Color(0xFFE0E0E0),
+      200: const Color(0xFFBDBDBD),
+      300: const Color(0xFF9E9E9E),
+      400: const Color(0xFF757575),
       500: primaryColor,
-      600: const Color(0xFFE53E3E),
-      700: const Color(0xFFC53030),
-      800: const Color(0xFF9B2C2C),
-      900: const Color(0xFF742A2A),
+      600: const Color(0xFF000000),
+      700: const Color(0xFF000000),
+      800: const Color(0xFF000000),
+      900: const Color(0xFF000000),
     }),
     primaryColor: primaryColor,
     scaffoldBackgroundColor: backgroundColor,
