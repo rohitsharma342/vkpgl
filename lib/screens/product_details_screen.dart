@@ -395,7 +395,8 @@ class ProductDetailsScreen extends StatelessWidget {
                       }).toList(),
                     ),
                     const SizedBox(height: 32),
-                    if (relatedProducts.isNotEmpty) ..[
+                    if (relatedProducts.isNotEmpty) ...
+                    [
                       const Text(
                         'You might also like',
                         style: TextStyle(
