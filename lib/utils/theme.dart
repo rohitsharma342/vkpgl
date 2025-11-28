@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primaryColor = Color(0xFFE53E3E);
+  static const Color primaryColor = Color(0xFFDC2626);
   static const Color backgroundColor = Color(0xFFF8F9FA);
   static const Color cardColor = Colors.white;
   static const Color textPrimary = Color(0xFF2D3436);
   static const Color textSecondary = Color(0xFF636E72);
-  static const Color accentColor = Color(0xFFE53E3E);
-  static const Color errorColor = Color(0xFFE17055);
+  static const Color accentColor = Color(0xFFDC2626);
+  static const Color errorColor = Color(0xFFEF4444);
   static const Color successColor = Color(0xFF00B894);
 
   static ThemeData lightTheme = ThemeData(
-    primarySwatch: MaterialColor(0xFFE53E3E, {
-      50: const Color(0xFFFEF5F5),
-      100: const Color(0xFFFED7D7),
-      200: const Color(0xFFFEB2B2),
-      300: const Color(0xFFFC8181),
-      400: const Color(0xFFF56565),
-      500: primaryColor,
-      600: const Color(0xFFE53E3E),
-      700: const Color(0xFFC53030),
-      800: const Color(0xFF9B2C2C),
-      900: const Color(0xFF742A2A),
+    primarySwatch: MaterialColor(0xFFDC2626, {
+      50: const Color(0xFFFEF2F2),
+      100: const Color(0xFFFEE2E2),
+      200: const Color(0xFFFECACA),
+      300: const Color(0xFFFCA5A5),
+      400: const Color(0xFFF87171),
+      500: const Color(0xFFEF4444),
+      600: primaryColor,
+      700: const Color(0xFFB91C1C),
+      800: const Color(0xFF991B1B),
+      900: const Color(0xFF7F1D1D),
     }),
     primaryColor: primaryColor,
     scaffoldBackgroundColor: backgroundColor,
@@ -96,6 +96,28 @@ class AppTheme {
         borderSide: const BorderSide(color: primaryColor, width: 2),
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: primaryColor,
+      foregroundColor: Colors.white,
+    ),
+    chipTheme: ChipThemeData(
+      backgroundColor: Colors.grey[100],
+      selectedColor: primaryColor.withOpacity(0.1),
+      labelStyle: const TextStyle(color: textPrimary),
+      secondaryLabelStyle: const TextStyle(color: Colors.white),
+      brightness: Brightness.light,
+    ),
+    tabBarTheme: const TabBarTheme(
+      labelColor: primaryColor,
+      unselectedLabelColor: textSecondary,
+      indicatorColor: primaryColor,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedItemColor: primaryColor,
+      unselectedItemColor: textSecondary,
+      backgroundColor: cardColor,
+      elevation: 8,
     ),
   );
 }
